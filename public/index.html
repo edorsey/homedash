@@ -22,6 +22,26 @@
 
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <script src="js/vendor/jquery-1.9.0.min.js"></script>
+
+        <script src="js/vendor/dancer.min.js"></script>
+        <script>
+            var dancer = new Dancer();
+            var kick_config = {
+                threshold : 0.018,
+                frequency: [0,10],
+                decay: 0.2763,
+                onKick : function(mag) {
+                    $.get('/wakeup.html');
+                },
+                offKick : function(mag) {
+
+                }
+            };
+            var kick = dancer.createKick(kick_config);
+            kick.on();
+            dancer.load({microphone: true});
+            dancer.play();
+        </script>
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -30,10 +50,7 @@
 
         <!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
 
-        <audio id="bgaudio">
-           <source src="assets/bg-test.mp3" type='audio/mpeg; codecs="mp3"'>
-           <!-- add your fallback solution here -->
-        </audio>
+        <button id="playPause" class="btn btn-primary">Pause</button>
 
 
         <script src="js/vendor/bootstrap.min.js"></script>

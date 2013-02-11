@@ -5,14 +5,14 @@ var exec = require('child_process').exec;
 app.use(express.static(__dirname + '/public'));
 
 app.get('/wakeup.html', function(req, res) {
-	exec('xset dpms force on\n', function(err, out, stderr) {
+	exec('nircmd monitor on\n', function(err, out, stderr) {
 		console.log(err, out, stderr);
 	});
 	res.end();
 });
 
 app.get('/sleep.html', function(req, res) {
-	exec('xset dpms force off\n', function(err, out, stderr) {
+	exec('nircmd monitor off\n', function(err, out, stderr) {
 		console.log(err, out, stderr);
 	});
 	res.end();
