@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var terminal = require('child_process').exec;
+var exec = require('child_process').exec;
 
 app.use(express.static(__dirname + '/public'));
 
