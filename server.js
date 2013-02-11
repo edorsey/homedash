@@ -17,7 +17,7 @@ terminal.on('exit', function (code) {
 app.use(express.static(__dirname + '/public'));
 
 app.get('/wakeup.html', function(req, res) {
-	terminal.stdin.write('nircmd monitor on\n');
+	terminal.stdin.write('xset dpms force on\n');
 	res.end();
 });
 
